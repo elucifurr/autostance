@@ -1,0 +1,9 @@
+{
+    "disableAutoUpdate": false,
+    "name": "AutoStance",
+    "author": "Elucifur",
+    "supportUrl": "https://github.com/elucifurr/ready-party/issues",
+    "description": "Automatically uses Warrior Assault Stance if it isn't activated.",
+    "version": "1.0",
+    "servers": ["https://raw.githubusercontent.com/elucifurr/autostance/master/"]
+}
