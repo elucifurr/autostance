@@ -28,6 +28,7 @@ module.exports = function AutoStance(mod) {
 		cid = event.gameId;
 		job = (event.templateId - 10101) % 100;
 		enabled = (job == 0 && event.level == 70) ? true : false;
+		buffActivated = false;
 	});
 	
 	mod.hook("S_LOAD_TOPO", 3, (event) => {
@@ -80,15 +81,20 @@ module.exports = function AutoStance(mod) {
 
 	mod.hook("S_ABNORMALITY_BEGIN", 4, (event) => {
 		if (enabled)
-			if (event.source == cid)
+			if (event.source == cid){
 				if (100150 == event.id)
-					buffActivated = true;	
+					buffActivated = true;
+				if (100297 == event.id)
+					buffActivated = true;
+			}			
 	});
 	
 	mod.hook("S_ABNORMALITY_END", 1, (event) => {
 		if (enabled)
 			if (event.target == cid)
 				if (100150 == event.id)
+					buffActivated = false;
+				if (100297 == event.id)
 					buffActivated = false;
 	});
 	
